@@ -1,12 +1,13 @@
-import os
-import cv2
-import numpy as np
-from skimage.feature import hog
-from sklearn import svm
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
-import joblib
-import time
+import os  # Thư viện này giúp tương tác với hệ điều hành, ví dụ như thao tác với tệp tin và thư mục
+import cv2  # Thư viện OpenCV dùng để xử lý ảnh và video, giúp nhận diện và xử lý hình ảnh
+import numpy as np  # Thư viện Numpy hỗ trợ tính toán số học với mảng và ma trận
+from skimage.feature import hog  # HOG (Histogram of Oriented Gradients) là một phương pháp để trích xuất đặc trưng hình ảnh
+from sklearn import svm  # Thư viện Scikit-learn cung cấp các công cụ học máy, ở đây sử dụng Support Vector Machine (SVM) để phân loại
+from sklearn.model_selection import train_test_split  # Hàm này giúp chia dữ liệu thành tập huấn luyện và kiểm tra
+from sklearn.metrics import accuracy_score, classification_report  # Các công cụ dùng để đánh giá mô hình học máy (độ chính xác và báo cáo phân loại)
+import joblib  # Thư viện này dùng để lưu trữ mô hình học máy vào file (serialization) và tải lại (deserialization)
+import time  # Thư viện hỗ trợ đo thời gian và các thao tác liên quan đến thời gian trong Python
+
 
 # Hàm tiền xử lý ảnh (chuyển đổi kích thước)
 def preprocess_image(image_path, size=(64, 128)):
